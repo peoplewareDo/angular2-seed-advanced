@@ -34,6 +34,8 @@ build/Release
 .idea
 *.iml
 
+.vscode
+
 dist
 dev
 docs
