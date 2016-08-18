@@ -12,7 +12,8 @@ export class ProjectConfig extends SeedAdvancedConfig {
   constructor() {
     super();
     // this.APP_TITLE = 'Put name of your app here';
-
+    this.ENABLE_SCSS = false;
+    
     // Add third-party libraries to be injected/bundled.
     this.NPM_DEPENDENCIES = [
       ...this.NPM_DEPENDENCIES,
