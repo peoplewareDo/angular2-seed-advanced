@@ -1,7 +1,7 @@
 import {TestComponentBuilder} from '@angular/compiler/testing';
 import {Component} from '@angular/core';
 import {getDOM} from '@angular/platform-browser/src/dom/dom_adapter';
-import {disableDeprecatedForms, provideForms} from '@angular/forms/index';
+import {disableDeprecatedForms, provideForms} from '@angular/forms';
 import {RouterConfig} from '@angular/router';
 
 import {t} from '../../frameworks/test/index';
@@ -19,25 +19,22 @@ const config:RouterConfig = [
 
 export function main() {
   t.describe('@Component: AppComponent', () => {
-    // Disable old forms
-    let providerArr: any[];
-
-    t.be(() => { providerArr = [disableDeprecatedForms(), provideForms()]; });
-    
     t.it('should work',
-      t.inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
+      t.async(t.inject([TestComponentBuilder], (tcb: TestComponentBuilder) => {
         tcb.createAsync(TestComponent)
           .then((rootTC:any) => {
             rootTC.detectChanges();
             let appDOMEl = rootTC.debugElement.children[0].nativeElement;
             t.e(getDOM().querySelectorAll(appDOMEl, 'sd-app sd-navbar > nav > a')[1].href).toMatch(/\/about/);
           });
-      }));
+      })));
   });
 }
 
 @Component({
-  viewProviders: [
+  providers: [
+    disableDeprecatedForms(),
+    provideForms(),
     TEST_CORE_PROVIDERS(),
     TEST_HTTP_PROVIDERS(),
     NameListService,
