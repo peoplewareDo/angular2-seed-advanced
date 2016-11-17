@@ -1,40 +1,39 @@
 // angular
-import {ReflectiveInjector, provide} from '@angular/core';
-import {BaseRequestOptions, ConnectionBackend, Http, HTTP_PROVIDERS} from '@angular/http';
-import {MockBackend} from '@angular/http/testing';
+import { ReflectiveInjector } from '@angular/core';
+import { BaseRequestOptions, ConnectionBackend, Http } from '@angular/http';
+import { MockBackend } from '@angular/http/testing';
 
-let providers: any[] = [
-  HTTP_PROVIDERS,
+let providers: Array<any> = [
   BaseRequestOptions,
   MockBackend,
-  provide(Http, {
+  { provide: Http,
     useFactory: function (backend: ConnectionBackend, defaultOptions: BaseRequestOptions) {
       return new Http(backend, defaultOptions);
     },
     deps: [MockBackend, BaseRequestOptions]
-  })
+  }
 ];
 
 /*
 * For instances where you need the injector
 * @returns `ReflectiveInjector`
 */
-export function GET_HTTP_PROVIDERS_INJECTOR(additionalProviders?: any[]): ReflectiveInjector {
-  
+export function GET_HTTP_PROVIDERS_INJECTOR(additionalProviders?: Array<any>): ReflectiveInjector {
+
   if (additionalProviders) {
     providers = providers.concat(additionalProviders);
-  }  
+  }
 
-  return ReflectiveInjector.resolveAndCreate(providers);  
+  return ReflectiveInjector.resolveAndCreate(providers);
 }
 
 /*
 * For testing http services
-* @returns `any[]`
+* @returns `Array<any>`
 */
-export function TEST_HTTP_PROVIDERS(): any[] {
-  return providers; 
+export function TEST_HTTP_PROVIDERS(): Array<any> {
+  return providers;
 }
 
 
-      
+

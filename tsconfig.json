@@ -7,22 +7,32 @@
     "noLib": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "lib": [
+      "es6",
+      "es2015",
+      "dom"
+    ],
     "sourceMap": true,
     "pretty": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
     "noImplicitAny": true,
-    "noImplicitReturns": false,
+    "noImplicitReturns": true,
     "noImplicitUseStrict": false,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules"
+    ],
+    "types": [
+      "node"
+    ]
   },
   "exclude": [
     "desktop",
     "nativescript",
     "node_modules",
     "dist",
-    "typings/index.d.ts",
-    "typings/modules",
     "src"
   ],
   "compileOnSave": false

@@ -13,14 +13,14 @@ let template: any;
 let menu: any;
 
 // app
-import {AppConfigService} from './app/frameworks/app/services/app-config.service';
+import { AppConfig } from './app/frameworks/sample/services/app-config';
 
 // Sample
 // You would need a valid `submitURL` to use
 // crashReporter.start({
-//   productName: 'Angular2SeedAdvanced',
+//   productName: 'AngularSeedAdvanced',
 //   companyName: 'NathanWalker',
-//   submitURL: 'https://github.com/NathanWalker/angular2-seed-advanced',
+//   submitURL: 'https://github.com/NathanWalker/angular-seed-advanced',
 //   autoSubmit: true
 // });
 
@@ -49,15 +49,15 @@ app.on('ready', () => {
 
   mainWindow.webContents.on('did-navigate-in-page', (e: any, url: string) => {
     console.log(`Page navigated: ${url}`);
-  });  
+  });
 
-  let appTitle: string = `Angular 2 Seed Advanced`;  
+  let appTitle: string = `Angular Seed Advanced`;
 
   let langMenu: any = {
     label: 'Language',
     submenu: []
   };
-  for (var lang of AppConfigService.SUPPORTED_LANGUAGES) {
+  for (var lang of AppConfig.SUPPORTED_LANGUAGES) {
     let code = lang.code;
     let langOption = {
       label: lang.title,
@@ -74,17 +74,17 @@ app.on('ready', () => {
     submenu: [{
       label: 'Learn More',
       click:() => {
-        shell.openExternal('https://github.com/NathanWalker/angular2-seed-advanced');
+        shell.openExternal('https://github.com/NathanWalker/angular-seed-advanced');
       }
     }, {
         label: 'Issues',
         click:() => {
-          shell.openExternal('https://github.com/NathanWalker/angular2-seed-advanced/issues');
+          shell.openExternal('https://github.com/NathanWalker/angular-seed-advanced/issues');
         }
       }, {
-        label: `My Amazing Parent: Minko Gechev's Angular 2 Seed`,
+        label: `My Amazing Parent: Minko Gechev's Angular Seed`,
         click:() => {
-          shell.openExternal('https://github.com/mgechev/angular2-seed');
+          shell.openExternal('https://github.com/mgechev/angular-seed');
         }
       }, {
         label: 'Angular 2',
@@ -104,10 +104,10 @@ app.on('ready', () => {
       }, {
         label: 'Codeology Visualization',
         click:() => {
-          shell.openExternal('http://codeology.braintreepayments.com/nathanwalker/angular2-seed-advanced');
+          shell.openExternal('http://codeology.braintreepayments.com/nathanwalker/angular-seed-advanced');
         }
       }]
-  };  
+  };
 
   if (process.platform === 'darwin') {
     template = [{
@@ -123,7 +123,7 @@ app.on('ready', () => {
         }, {
           type: 'separator'
         }, {
-          label: 'Hide Angular 2 Seed Advanced',
+          label: 'Hide Angular Seed Advanced',
           accelerator: 'Command+H',
           selector: 'hide:'
         }, {

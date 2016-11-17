@@ -1,9 +1,10 @@
-import {EventEmitter} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
+import { EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 export class TranslateMock {
   public onLangChange: EventEmitter<any> = new EventEmitter();
+  public onTranslationChange: EventEmitter<any> = new EventEmitter();
   public getTranslation(lang: string): any {
     return {
       'TEST': 'test'
