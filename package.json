@@ -1,6 +1,6 @@
 {
   "name": "angular2-seed-advanced",
-  "version": "1.0.0",
+  "version": "1.0.1",
     "description": "High-quality, modular starter (advanced seed) project for Angular 2 apps with statically typed build and AoT + NativeScript + Electron",
   "repository": {
     "url": "https://github.com/NathanWalker/angular-seed-advanced"
