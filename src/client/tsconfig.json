@@ -24,16 +24,8 @@
     "types": [
       "node",
       "jasmine",
-      "protractor",
       "systemjs"
     ]
   },
-  "exclude": [
-    "desktop",
-    "nativescript",
-    "node_modules",
-    "dist",
-    "src"
-  ],
   "compileOnSave": false
 }
